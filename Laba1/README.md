@@ -158,12 +158,6 @@ ssh -p 2222 vboxuser@127.0.0.1
 ssh-keygen -t ed25519 -C "vboxuser@lab"
 ```
 
-Публичный ключ добавлен в файл `~/.ssh/authorized_keys` на виртуальной машине (командная строка Windows):
-
-```cmd
-type %USERPROFILE%\.ssh\id_ed25519.pub | ssh -o PubkeyAuthentication=no -p 2222 vboxuser@127.0.0.1 "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys && chmod 700 ~/.ssh && chmod 600 ~/.ssh/authorized_keys"
-```
-
 Теперь вход выполняется по ключу, пароль пользователя ВМ не запрашивается. Запрашивается только парольная фраза самого приватного ключа, которая была задана при его создании.
 
 ```bash
